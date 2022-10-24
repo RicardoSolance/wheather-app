@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React from 'react';
+import GetCity from './GetCity/GetCity';
 
-class Main extends Component {
-  render() {
-    return <div className="text-primary">Esto es el Main</div>;
-  }
+function Main(props) {
+  return (
+    <div className='container'>
+      <GetCity/>
+    </div>
+  );
 }
 
 export default Main;
