@@ -1,11 +1,13 @@
 import React from 'react';
+import CityWeather from './CityWeather/CityWeather';
 import GetCity from './GetCity/GetCity';
 
 function Main(props) {
   return (
-    <div className='container'>
+    <main className='container'>
       <GetCity/>
-    </div>
+      <CityWeather/>
+    </main>
   );
 }
 

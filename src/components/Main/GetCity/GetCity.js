@@ -9,13 +9,12 @@ function GetCity() {
     e.preventDefault();
     const city = e.target.city.value
     console.log(city);
-    setCityName(city)
-   
+    setCityName(city);
   }
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group d-flex ">
-        <input type="text" className='form-control m-1' id="cityName" name='city' placeholder="Find city"/>
+        <input type="text" className='form-control m-1 transparent-input text-white' id="cityName" name='city' placeholder="Find city"/>
         <button type="submit" className="btn btn-primary m-1">Find</button>
       </div>
     </form>
