@@ -7,12 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { weatherContext } from './context/weatherContext';
 import './styles/styles.scss'
 import axios from 'axios';
-import * as dotenv from 'dotenv'
-dotenv.config()
+
 
 function App() {
   const [cityData, setCityData] = useState({});
   const [cityName, setCityName] = useState({});
+  
   useEffect(()=>{
     async function fetchCity(){
       try {
