@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+import logo  from '../../assets/imges/weather.png'
 
-class Header extends Component {
-  render() {
-    return <div>Header</div>;
-  }
+function Header() {
+  return (
+    <header>
+      <nav className="navbar navbar-light ">
+        <a className="navbar-brand " href="/">
+          <img src={logo} width="30" height="30" alt="" loading="lazy"/>
+        </a>
+      </nav>
+    </header>
+  )
 }
-
-export default Header;
+export default Header

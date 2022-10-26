@@ -1,3 +1,22 @@
 @import 'bootstrap/scss/functions.scss';
 @import 'bootstrap/scss/variables.scss';
 @import 'bootstrap/scss/bootstrap.scss';
+
+/* import components*/
+
+* {
+    box-sizing: border-box;
+    
+}
+body{
+    background-image: url('https://satotours.eu/wp-content/uploads/2020/04/4-840x500.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(20px);
+}
+
+
+@import './components/Header.scss';
+@import './components/Main';
+@import './components/Getcity';
+@import './components//CityWeather'
