@@ -20,7 +20,7 @@ function CityWeather() {
   const renderCloudData = () => {
 
     if (cloudData !== 'sin datos' ) {
-      console.log('cloud data en el if ',cloudData);
+
       return <p className='text-white fs-6 text-wrap'>{cloudData}</p>
     } else {
       return <p className='text-white fs-6 text-wrap'>buscando</p>
@@ -29,7 +29,7 @@ function CityWeather() {
   const renderTempData = () => {
  
     if (tempData !== 'sin datos' ) {
-      return <p className='text-white fs-6 text-wrap'>{tempData}</p>
+      return <h1 className='temp text-white'>{tempData.toFixed(0)}°</h1>
     } else {
       return <p className='text-white fs-6 text-wrap'>buscando</p>
     }
@@ -37,7 +37,7 @@ function CityWeather() {
   const renderHumiData = () => {
 
     if (tempData !== 'sin datos' ) {
-      return <p className='text-white fs-6'>{humiData} g/m³</p>
+      return <h1 className='text-white '>{humiData} g/m³</h1>
     } else {
       return <p className='text-white fs-6'>buscando</p>
     }
@@ -51,6 +51,7 @@ function CityWeather() {
         setHumiData(cityData.main.humidity)
         const res = await axios.get(`https://api.unsplash.com/search/photos?query=${cityData.name}&per_page=20&client_id=gK52De2Tm_dL5o1IXKa9FROBAJ-LIYqR41xBdlg3X2k`)
         const cityImage = res.data.results[random()].urls.full
+        // eslint-disable-next-line no-lone-blocks
         {if (cityImage !== 'undefined')(setbgImage(res.data.results[random()].urls.full))}  
         // setbgImage(res.data.results[random()].urls.full)
       } catch (error) {
@@ -61,9 +62,10 @@ function CityWeather() {
   },[cityData])
   return (
     // style={{backgroundImage: `url(${bgImage})`}}
-    <section className='container ' >
+    <section className='container cityWeather ' >
         <div className='row text-center title'>
-          <h1 className='text-white'>{cityData.name}</h1>
+          <h2 className='text-white'>{cityData.name}</h2>
+          {renderTempData()}
         </div>
         <div className='row data'>
           <div className='col-6 col-sm-4'>
@@ -74,12 +76,12 @@ function CityWeather() {
           <div className='col-6 col-sm-4'>
             <h6 className='text-white'>temperature</h6>
             <h2 className='icon'><FontAwesomeIcon icon={faTemperatureLow} color='white' thin /></h2>
-            {renderTempData}
+          
           </div>
           <div className='col-12 col-sm-4'>
           <h6 className='text-white'>humidity</h6>
             <h2 className='icon'><FontAwesomeIcon icon={faDroplet} color='white' thin /></h2>
-            {renderHumiData}
+            {renderHumiData()}
           </div>
         </div>
     
