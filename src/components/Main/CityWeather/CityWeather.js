@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCloudMoon,faTemperatureLow,faDropletDegree,faDroplet,thin, faLocationDot} from '@fortawesome/free-solid-svg-icons'
+import {faCloudMoon,faTemperatureLow,faDroplet,faCloud, faEye, faWind, faCompass, faReel, faBlind, faCompress} from '@fortawesome/free-solid-svg-icons'
 
 import { weatherContext } from '../../../context/weatherContext';
 
@@ -11,6 +11,9 @@ function CityWeather() {
   const [cloudData, setCloudData] = useState() 
   const [tempData, setTempData] = useState() 
   const [humiData, setHumiData] = useState() 
+  const [cloudsData, setCloudsData] = useState() 
+  const [visibilityData, setVisibilityData] = useState() 
+  const [windData, setWindData] = useState() 
   // console.log('esto es cityData', cityData);
   
   const clientID ='AIzaSyAKjassZzLbhSA6qk7gefNmqiJ2CjZigRg'
@@ -29,31 +32,59 @@ function CityWeather() {
   const renderTempData = () => {
  
     if (tempData !== 'sin datos' ) {
-      return <h1 className='temp text-white'>{tempData.toFixed(0)}°</h1>
+      const temperature = tempData
+      return <h1 className='temp text-white text-wrap m-0'>{temperature}°</h1>
     } else {
-      return <p className='text-white fs-6 text-wrap'>buscando</p>
+      return <p className='text-white text-wrap m-0'>buscando</p>
+    }
+  }
+  const rendervisibilityData = () => {
+
+    if (visibilityData !== 'sin datos' ) {
+      return <span className='text-white font-3 '>{visibilityData}km</span>
+    } else {
+      return <span className='text-white'>buscando</span>
+    }
+  }
+  const rendercloudsData = () => {
+
+    if (cloudsData !== 'sin datos' ) {
+      return <span className='text-white font-3 '>{cloudsData}%</span>
+    } else {
+      return <span className='text-white'>buscando</span>
     }
   }
   const renderHumiData = () => {
 
     if (tempData !== 'sin datos' ) {
-      return <h1 className='text-white '>{humiData} g/m³</h1>
+      return <span className='text-white font-3 '>{humiData}%</span>
     } else {
-      return <p className='text-white fs-6'>buscando</p>
+      return <span className='text-white'>buscando</span>
+    }
+  }
+  const renderWindData = () => {
+
+    if (windData !== 'sin datos' ) {
+      return <span className='text-white font-3 '>{windData} Km/h</span>
+    } else {
+      return <span className='text-white'>buscando</span>
     }
   }
 
   useEffect(()=>{
     async function getImage(){
       try {
-        setTempData(cityData.main.temp)
+        setTempData(cityData.main.temp.toFixed())
         setCloudData(cityData.weather[0].description)
         setHumiData(cityData.main.humidity)
+        setVisibilityData(cityData.visibility)
+        setCloudsData(cityData.clouds.all)
+        setWindData(cityData.wind.speed)
         const res = await axios.get(`https://api.unsplash.com/search/photos?query=${cityData.name}&per_page=20&client_id=gK52De2Tm_dL5o1IXKa9FROBAJ-LIYqR41xBdlg3X2k`)
         const cityImage = res.data.results[random()].urls.full
         // eslint-disable-next-line no-lone-blocks
         {if (cityImage !== 'undefined')(setbgImage(res.data.results[random()].urls.full))}  
-        // setbgImage(res.data.results[random()].urls.full)
+        
       } catch (error) {
         console.log(error)
       }
@@ -66,23 +97,56 @@ function CityWeather() {
         <div className='row text-center title'>
           <h2 className='text-white'>{cityData.name}</h2>
           {renderTempData()}
+          {renderCloudData()}
         </div>
-        <div className='row data'>
-          <div className='col-6 col-sm-4'>
-            <h6 className='text-white'>clouds</h6>
-            <h2 className=' icon'><FontAwesomeIcon icon={faCloudMoon} color='white' thin/></h2>
-            {renderCloudData()}
+        <div className='row data d-flex justify-content-center flex-row'>
+          <div className='row data-1 rounded d-flex justify-content-beetwen align-items-center py-3 mb-2' >
+
+            <div className='col-4 d-inline-flex  justify-content-center align-items-center border-end text-wrap  py-2'>
+              <FontAwesomeIcon icon={faDroplet} color='#0aadfe' thin  className='me-2'/>
+              <div className='data-display text-start d-flex justify-content-center flex-column text-wrap'>
+                <p className='text-white font-2 m-0 text-wrap'>Humidity</p>
+                {renderHumiData()} 
+              </div>
+            </div>
+
+            <div className='col-4 d-inline-flex  justify-content-center align-items-center border-end text-wrap   py-2'>
+              <FontAwesomeIcon icon={faCloud} color='white' thin  className='me-2'/>
+              <div className='data-display text-start d-flex justify-content-center flex-column text-wrap'>
+                <p className='text-white font-2 m-0 text-wrap'>Cloud</p>
+                { rendercloudsData()}
+              </div>
+            </div>
+            <div className='col-4 d-inline-flex  justify-content-center align-items-center  text-wrap  py-2'>
+              <FontAwesomeIcon icon={faEye} color='white' thin  className='me-2'/>
+              <div className='data-display text-start d-flex justify-content-center flex-column text-wrap'>
+                <p className='text-white font-2 m-0 text-wrap'>visibility</p>
+                {rendervisibilityData()}
+              </div>
+            </div>
+
+           
+ 
           </div>
-          <div className='col-6 col-sm-4'>
-            <h6 className='text-white'>temperature</h6>
-            <h2 className='icon'><FontAwesomeIcon icon={faTemperatureLow} color='white' thin /></h2>
-          
+          <div className='row data-2 rounded d-flex justify-content-beetwen align-items-center py-3 mb-2'>
+              <div className='col-8 d-inline-flex  justify-content-start align-items-center border-end text-wrap  py-2'>
+                <FontAwesomeIcon icon={faWind} color='white'   className='m-2 font-1'/>
+                <div className='data-display text-start d-flex justify-content-center flex-column ms-3 text-wrap'>
+                  <p className='text-white font-2 m-0 text-wrap'>Wind</p>
+                  {renderWindData()} 
+              </div>
+              <span className='text-white font-2 m-0 text-wrap'><FontAwesomeIcon icon={faCompass} color='#0aadfe'   className='ms-3 me-2'/>{cityData.wind.deg}°</span> 
+              </div>
+              <div className='col-4 d-inline-flex  justify-content-start align-items-center text-wrap  py-2'>
+                <FontAwesomeIcon icon={faCompress} color='white'   className=' font-1'/>
+                <div className='data-display text-start d-flex justify-content-center flex-column ms-2 text-wrap'>
+                  <p className='text-white font-2 m-0 text-wrap'>Pressure</p>
+                  {renderWindData()} 
+                </div>
+              
+              </div>
           </div>
-          <div className='col-12 col-sm-4'>
-          <h6 className='text-white'>humidity</h6>
-            <h2 className='icon'><FontAwesomeIcon icon={faDroplet} color='white' thin /></h2>
-            {renderHumiData()}
-          </div>
+         
         </div>
     
 

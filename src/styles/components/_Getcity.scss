@@ -4,3 +4,7 @@ input.transparent-input{
     outline: none !important;
    box-shadow: none;
  }
+ input::placeholder {
+  color: rgb(255, 255, 255) !important;
+  opacity: 1;
+}

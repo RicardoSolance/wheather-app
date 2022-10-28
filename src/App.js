@@ -20,9 +20,9 @@ function App() {
       try {
         console.log('entra en el context',cityName);
         const apikey = "b2f45226fa11dc7c8bf03ea44973afe0"
-        const res = await axios(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apikey}&units=metric&lang=es`);
-        setCityData(res.data)
-        console.log('city Data',cityData);
+        const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apikey}&units=metric&lang=es`);
+        await setCityData(res.data)
+        console.log('city Data',res.data);
       } catch (error) {
         console.log(error);
       }
