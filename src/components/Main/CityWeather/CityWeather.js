@@ -49,7 +49,7 @@ function CityWeather() {
   const rendercloudsData = () => {
 
     if (cloudsData !== 'sin datos' ) {
-      return <span className='text-white font-3 '>{cloudsData}%</span>
+      return <span className='text-white  '>{cloudsData}%</span>
     } else {
       return <span className='text-white'>buscando</span>
     }
@@ -135,10 +135,10 @@ function CityWeather() {
                   <p className='text-white font-2 m-0 text-wrap'>Wind</p>
                   {renderWindData()} 
               </div>
-              <span className='text-white font-2 m-0 text-wrap'><FontAwesomeIcon icon={faCompass} color='#0aadfe'   className='ms-3 me-2'/>{cityData.wind.deg}°</span> 
+              {/* <span className='text-white font-2 m-0 text-wrap'><FontAwesomeIcon icon={faCompass} color='#0aadfe'   className='ms-3 me-2'/>{cityData.wind.deg}°</span>  */}
               </div>
               <div className='col-4 d-inline-flex  justify-content-start align-items-center text-wrap  py-2'>
-                <FontAwesomeIcon icon={faCompress} color='white'   className=' font-1'/>
+                <FontAwesomeIcon icon={faCompress} color='white'   className='me-2'/>
                 <div className='data-display text-start d-flex justify-content-center flex-column ms-2 text-wrap'>
                   <p className='text-white font-2 m-0 text-wrap'>Pressure</p>
                   {renderWindData()} 

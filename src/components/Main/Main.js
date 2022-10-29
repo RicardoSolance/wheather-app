@@ -1,5 +1,6 @@
 import React from 'react';
 import CityWeather from './CityWeather/CityWeather';
+import CurrenPosition from './CurrenPosition/CurrenPosition';
 import GetCity from './GetCity/GetCity';
 
 function Main(props) {
@@ -10,6 +11,7 @@ function Main(props) {
       </div>
       <GetCity/>
       <CityWeather/>
+      <CurrenPosition/>
     </main>
   );
 }
