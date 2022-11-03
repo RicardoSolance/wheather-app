@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import mills from '../../../assets/icons/mills.svg'
+import pressure from '../../../assets/icons/pressure.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCloudMoon,faTemperatureLow,faDroplet,faCloud, faEye, faWind, faCompass, faReel, faBlind, faCompress} from '@fortawesome/free-solid-svg-icons'
 
 import { weatherContext } from '../../../context/weatherContext';
@@ -128,17 +130,17 @@ function CityWeather() {
            
  
           </div>
-          <div className='row data-2 rounded d-flex justify-content-beetwen align-items-center py-3 mb-2'>
-              <div className='col-8 d-inline-flex  justify-content-start align-items-center border-end text-wrap  py-2'>
-                <FontAwesomeIcon icon={faWind} color='white'   className='m-2 font-1'/>
+          <div className='row data-2 rounded d-flex justify-content-center align-items-center py-3 mb-2'>
+              <div className='col-8 d-inline-flex  justify-content-center align-items-center border-end text-wrap  py-2'>
+                <img src={mills} className='me-2 iconSvg'/>
                 <div className='data-display text-start d-flex justify-content-center flex-column ms-3 text-wrap'>
                   <p className='text-white font-2 m-0 text-wrap'>Wind</p>
                   {renderWindData()} 
               </div>
               {/* <span className='text-white font-2 m-0 text-wrap'><FontAwesomeIcon icon={faCompass} color='#0aadfe'   className='ms-3 me-2'/>{cityData.wind.deg}°</span>  */}
               </div>
-              <div className='col-4 d-inline-flex  justify-content-start align-items-center text-wrap  py-2'>
-                <FontAwesomeIcon icon={faCompress} color='white'   className='me-2'/>
+              <div className='col-4 d-inline-flex  justify-content-center align-items-center text-wrap  py-2'>
+                <img src={pressure} className='ms-2 iconSvg-2'/>
                 <div className='data-display text-start d-flex justify-content-center flex-column ms-2 text-wrap'>
                   <p className='text-white font-2 m-0 text-wrap'>Pressure</p>
                   {renderWindData()} 

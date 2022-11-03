@@ -1,5 +1,17 @@
 
 .cityWeather{
+    .iconSvg{
+        fill: white;
+        /* to black */
+        filter: invert(1);
+        width: 5rem;
+    }
+    .iconSvg-2{
+        fill: white;
+        /* to black */
+        filter: invert(1);
+        width: 2rem;
+    }
     .data{
         .data-1{
             background-color:#32425c ;
@@ -8,6 +20,7 @@
             background-color:#32425c ;
         }
     }
+   
     
     h6{
         margin: 0;
