@@ -43,7 +43,7 @@ function CityWeather() {
   const rendervisibilityData = () => {
 
     if (visibilityData !== 'sin datos' ) {
-      return <span className='text-white font-3 '>{visibilityData}km</span>
+      return <span className='text-white font-3 ms-1'>{visibilityData}km</span>
     } else {
       return <span className='text-white'>buscando</span>
     }
@@ -95,34 +95,34 @@ function CityWeather() {
   },[cityData])
   return (
     // style={{backgroundImage: `url(${bgImage})`}}
-    <section className='container cityWeather ' >
+    <section className=' d-flex flex-column justify-content-between align-items-center w-100 w-sm-50 m-2 cityWeather' >
         <div className='row text-center title'>
           <h2 className='text-white'>{cityData.name}</h2>
           {renderTempData()}
           {renderCloudData()}
         </div>
-        <div className='row data d-flex justify-content-center flex-row'>
-          <div className='row data-1 rounded d-flex justify-content-beetwen align-items-center py-3 mb-2' >
+        <div className='row data d-flex justify-content-center flex-row '>
+          <div className='row data-1 rounded d-flex justify-content-beetwen align-items-center p-2 mb-2' >
 
-            <div className='col-4 d-inline-flex  justify-content-center align-items-center border-end text-wrap  py-2'>
-              <FontAwesomeIcon icon={faDroplet} color='#0aadfe' thin  className='me-2'/>
-              <div className='data-display text-start d-flex justify-content-center flex-column text-wrap'>
-                <p className='text-white font-2 m-0 text-wrap'>Humidity</p>
+            <div className='col-4 d-inline-flex  justify-content-center align-items-center border-end text-wrap '>
+              <FontAwesomeIcon icon={faDroplet} color='#0aadfe' thin  className='me-2 ms-2'/>
+              <div className='data-display text-start d-flex justify-content-start flex-column text-wrap '>
+                <p className='text-white font-2 me-3 mb-0 text-wrap'>Humidity</p>
                 {renderHumiData()} 
               </div>
             </div>
 
-            <div className='col-4 d-inline-flex  justify-content-center align-items-center border-end text-wrap   py-2'>
+            <div className='col-4 d-inline-flex  justify-content-center align-items-center border-end text-wrap'>
               <FontAwesomeIcon icon={faCloud} color='white' thin  className='me-2'/>
-              <div className='data-display text-start d-flex justify-content-center flex-column text-wrap'>
+              <div className='data-display text-start d-flex justify-content-start flex-column text-wrap'>
                 <p className='text-white font-2 m-0 text-wrap'>Cloud</p>
                 { rendercloudsData()}
               </div>
             </div>
-            <div className='col-4 d-inline-flex  justify-content-center align-items-center  text-wrap  py-2'>
-              <FontAwesomeIcon icon={faEye} color='white' thin  className='me-2'/>
+            <div className='col-4 d-inline-flex  justify-content-center align-items-center text-wrap'>
+              <FontAwesomeIcon icon={faEye} color='white' thin  className='ms-1'/>
               <div className='data-display text-start d-flex justify-content-center flex-column text-wrap'>
-                <p className='text-white font-2 m-0 text-wrap'>visibility</p>
+                <p className='text-white font-2 ms-1 mb-0  text-wrap'>visibility</p>
                 {rendervisibilityData()}
               </div>
             </div>
@@ -130,8 +130,8 @@ function CityWeather() {
            
  
           </div>
-          <div className='row data-2 rounded d-flex justify-content-center align-items-center py-3 mb-2'>
-              <div className='col-8 d-inline-flex  justify-content-center align-items-center border-end text-wrap  py-2'>
+          <div className='row data-2 rounded d-flex justify-content-beetwen align-items-center p-2 mb-2'>
+              <div className='col-7 d-inline-flex  justify-content-center align-items-center border-end text-wrap'>
                 <img src={mills} className='me-2 iconSvg'/>
                 <div className='data-display text-start d-flex justify-content-center flex-column ms-3 text-wrap'>
                   <p className='text-white font-2 m-0 text-wrap'>Wind</p>
@@ -139,7 +139,7 @@ function CityWeather() {
               </div>
               {/* <span className='text-white font-2 m-0 text-wrap'><FontAwesomeIcon icon={faCompass} color='#0aadfe'   className='ms-3 me-2'/>{cityData.wind.deg}°</span>  */}
               </div>
-              <div className='col-4 d-inline-flex  justify-content-center align-items-center text-wrap  py-2'>
+              <div className='col-5 d-inline-flex  justify-content-center align-items-center text-wrap  py-2'>
                 <img src={pressure} className='ms-2 iconSvg-2'/>
                 <div className='data-display text-start d-flex justify-content-center flex-column ms-2 text-wrap'>
                   <p className='text-white font-2 m-0 text-wrap'>Pressure</p>
@@ -150,8 +150,6 @@ function CityWeather() {
           </div>
          
         </div>
-    
-
     </section>
   )
 }

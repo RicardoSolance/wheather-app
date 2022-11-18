@@ -33,7 +33,7 @@ function CurrenPosition() {
     <form onSubmit={handleSubmit} className='d-flex justify-content-center align-items-center mt-3'>
       <div className="form-group ">
        
-        <button type="submit" className="btn btn-light m-1">my position</button>
+        <button type="submit" className="btn btn-light m-1 text-primary">my position</button>
       </div>
     </form>
   )
