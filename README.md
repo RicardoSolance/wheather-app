@@ -15,8 +15,9 @@ Apart from that, it shows you random images of the city you have searched for.
 You can see a demo here www.myvercerlApp.com
 
 
-## Appendix
+## Tech Stack
 
+**FrontEnd:** React, Context, Bootstrap, Sass
 
 
 
@@ -26,11 +27,4 @@ You can see a demo here www.myvercerlApp.com
 - Searching city
 - showing random images
 - Mobile First
-
-
-## Tech Stack
-
-**FrontEnd:** React, Context, Bootstrap, Sass
-
-
 
