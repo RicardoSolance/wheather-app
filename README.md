@@ -1,7 +1,7 @@
 
 # Flow My weather
 
-It is a simple application to know the weather in the city where we are or in a particular.city.
+It is a simple application to know the weather of city where we are or of a particular city.
 Apart from that, it shows you random images of the city you have searched for.
 
 
